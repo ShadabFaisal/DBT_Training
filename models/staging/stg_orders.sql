@@ -5,6 +5,7 @@ o.orderid,
 o.orderdate,
 o.shipdate,
 o.shipmode,
+d.delivery_team,
 o.ordersellingprice,
 o.ordercostprice,
 o.ordersellingprice-o.ordercostprice as orderprofit,
@@ -24,6 +25,8 @@ left join {{ ref('raw_customer') }} c
 on o.customerid=c.customerid
 left join {{ ref('raw_product')}} p
 on o.productid=p.productid
+left join {{ ref('delivery_team') }} as d
+on o.shipmode=d.shipmode
 
 
 {{limit_data_in_dev('orderdate')}}
