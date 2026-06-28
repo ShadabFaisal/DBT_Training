@@ -1,7 +1,3 @@
-
-
-
-
 {%- set category = ["Furniture","Office","Technology"] -%}
 
 select 
